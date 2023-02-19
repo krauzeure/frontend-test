@@ -6,6 +6,8 @@ import Home from '../src/Pages/Home'
 import { store } from './redux/store'
 import { Provider } from 'react-redux';
 
+export type RootState = ReturnType<typeof store.getState>
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
