@@ -2,6 +2,7 @@ import React from 'react'
 import Card from '../Card/Card'
 import { images } from '../../Data/images'
 import { v4 as uuidv4 } from 'uuid'
+import '../../css/style.css'
 
 // Creating an array with 2 instances of each picture
 const allImages = [...images, ...images];
@@ -21,7 +22,7 @@ shuffleArray(allImages);
 
 export default function GameBoard() {
   return (
-    <ul>
+    <ul className="game-container">
         {allImages.map(item => (
           <Card image={item.image} alt={item.name} key={uuidv4()} />
         ))}
