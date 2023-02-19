@@ -11,42 +11,97 @@ export const images = [
     {
         "id": 1,
         "name": "react",
-        "image": reactImg
+        "image": reactImg,
+        "isHidden": true
     },
     {
         "id": 2,
         "name": "css",
-        "image": cssImg
+        "image": cssImg,
+        "isHidden": true
     },
     {
         "id": 3,
         "name": "git",
-        "image": gitImg
+        "image": gitImg,
+        "isHidden": true
     },
     {
         "id": 4,
         "name": "js",
-        "image": jsImg
+        "image": jsImg,
+        "isHidden": true
     },
     {
         "id": 5,
         "name": "sass",
-        "image": sassImg
+        "image": sassImg,
+        "isHidden": true
     },
     {
         "id": 6,
         "name": "html",
-        "image": htmlImg
+        "image": htmlImg,
+        "isHidden": true
     },
     {
         "id": 7,
         "name": "typescript",
-        "image": typescriptImg
+        "image": typescriptImg,
+        "isHidden": true
     },
     {
         "id": 8,
         "name": "redux",
-        "image": reduxtImg
+        "image": reduxtImg,
+        "isHidden": true
     },
-
+    {
+        "id": 1,
+        "name": "react",
+        "image": reactImg,
+        "isHidden": true
+    },
+    {
+        "id": 2,
+        "name": "css",
+        "image": cssImg,
+        "isHidden": true
+    },
+    {
+        "id": 3,
+        "name": "git",
+        "image": gitImg,
+        "isHidden": true
+    },
+    {
+        "id": 4,
+        "name": "js",
+        "image": jsImg,
+        "isHidden": true
+    },
+    {
+        "id": 5,
+        "name": "sass",
+        "image": sassImg,
+        "isHidden": true
+    },
+    {
+        "id": 6,
+        "name": "html",
+        "image": htmlImg,
+        "isHidden": true
+    },
+    {
+        "id": 7,
+        "name": "typescript",
+        "image": typescriptImg,
+        "isHidden": true
+    },
+    {
+        "id": 8,
+        "name": "redux",
+        "image": reduxtImg,
+        "isHidden": true
+    }
 ]
