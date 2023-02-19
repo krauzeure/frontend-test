@@ -1,10 +1,10 @@
 import React from 'react'
 import '../../css/style.css'
 
-export default function Card(props: {image: string, alt: string, hidden: boolean, returnCard:(id: number) => void, number: number, test: boolean}) {
+export default function Card(props: {image: string, alt: string, hidden: boolean, returnCard:(id: number, cardName: string) => void, number: number, test: boolean}) {
 
     const returnCard = () => {
-        props.returnCard(props.number);
+        props.returnCard(props.number, props.alt);
     }
 
     console.log("render")
