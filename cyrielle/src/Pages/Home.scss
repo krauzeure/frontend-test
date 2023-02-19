@@ -1,0 +1,25 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .explanation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      width: 250px;
+      background-color: #006494;
+      color: #fff;
+      height: 50px;
+      cursor: pointer;
+      border: none;
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 1em;
+    }
+    p {
+      margin-right: 40px;
+    }
+  }
