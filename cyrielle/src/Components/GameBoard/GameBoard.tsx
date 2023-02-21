@@ -26,7 +26,6 @@ let shuffled = allImages;
 
 export default function GameBoard() {
 
-    // const [turnedCards, setTurnedCards] = useState<number[]>([]);
     const [cardTurns, setCardTurns] = useState(0)
 
     const dispatch = useDispatch();
@@ -42,19 +41,6 @@ export default function GameBoard() {
         })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    // useEffect(() => {
-    //     const interval = setTimeout(() => {
-    //         console.log(gameBoard)
-    //         if(turnedCards.length > 1) {
-    //             shuffled[turnedCards[0]].isHidden = true;
-    //             shuffled[turnedCards[1]].isHidden = true;
-    //             setTurnedCards([])
-    //         }
-    //     }, 1000);
-    //     return () => clearTimeout(interval);
-    //   // eslint-disable-next-line react-hooks/exhaustive-deps
-    //   }, [wrongGuess]);
 
     useEffect(() => {
         const interval = setTimeout(() => {
@@ -75,13 +61,11 @@ export default function GameBoard() {
     console.log("GAMEBOARD", gameBoard)
 
     const cardClick = (cardNumber: number, cardName: string) => {
-        // shuffled[cardNumber].isHidden = false;
         dispatch({
             type: "TURNCARD",
             payload: cardNumber
         })
         setCardTurns(cardTurns + 1)
-        // turnedCards.push(cardNumber);
     }
 
   return (
