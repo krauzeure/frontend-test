@@ -6,6 +6,7 @@ import { images } from '../../Data/images'
 import { v4 as uuidv4 } from 'uuid'
 import '../../css/style.css'
 import { RootState } from '../../index'
+import { CardType } from '../../Types/types'
 
 // Creating a function to shuffle our array
 const shuffleArray = (array: { id: number; name: string; image: string; }[]) => {
@@ -23,13 +24,6 @@ const allImages = [...images];
 shuffleArray(allImages);
 let shuffled = allImages;
 
-interface Card {
-    id: number
-    name: string
-    image: string
-    isHidden: boolean
-}
-
 export default function GameBoard() {
 
     const [boardUpdate, setBoardUpdate] = useState(true);
@@ -38,7 +32,7 @@ export default function GameBoard() {
 
     const dispatch = useDispatch();
 
-    const {gameBoard} = useSelector<RootState, { gameBoard: Card[]}>(state =>({
+    const {gameBoard} = useSelector<RootState, { gameBoard: CardType[]}>(state =>({
         ...state.gameBoardReducer
     }))
 
@@ -47,6 +41,7 @@ export default function GameBoard() {
             type: "DRAWBOARD",
             payload: shuffled
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // useEffect(() => {
