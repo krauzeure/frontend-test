@@ -9,7 +9,7 @@ import { RootState } from '../../index'
 import { CardType } from '../../Types/types'
 
 // Creating a function to shuffle our array
-const shuffleArray = (array: { id: number; name: string; image: string; }[]) => {
+const shuffleArray = (array: CardType[]) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i];
@@ -43,12 +43,16 @@ export default function GameBoard() {
     }, [])
 
     useEffect(() => {
-        const interval = setTimeout(() => {
-            if(turnedCards.length === 2) {
-                checkPair();
-            }
-        }, 1000);
-        return () => clearTimeout(interval);
+        if(turnedCards.length === 2) {
+            dispatch({
+                type: "DISABLEBOARD"
+            })
+            const interval = setTimeout(() => {
+                console.log("check")
+                    checkPair();
+            }, 1000);
+            return () => clearTimeout(interval);
+        }
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [cardTurns]);
 
@@ -66,6 +70,7 @@ export default function GameBoard() {
             payload: cardNumber
         })
         setCardTurns(cardTurns + 1)
+        console.log(turnedCards)
     }
 
   return (
