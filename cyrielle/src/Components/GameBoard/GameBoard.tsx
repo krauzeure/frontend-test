@@ -71,7 +71,6 @@ export default function GameBoard() {
   return (
     <ul className="game-container">
         {gameBoard.map((item, index) => (
-          //@ts-ignore
           <Card image={item.image} alt={item.name} key={uuidv4()} hidden={item.isHidden} returnCard={cardClick} number={index} />
         ))}
     </ul>
