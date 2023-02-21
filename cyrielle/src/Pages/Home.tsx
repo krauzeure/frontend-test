@@ -43,8 +43,8 @@ useEffect(() => {
         </div></section>
         {status === "ongoing" && <Timer />}
         {status === "ongoing" && <GameBoard />}
-        {status === "lost" && <div>Votre temps est écoulé ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
-        {status === "won" && <div>Félicitations 🙌 ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
+        {status === "lost" && <div className="home-over-message">Votre temps est écoulé ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
+        {status === "won" && <div className="home-over-message">Félicitations 🙌 ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
     </main>
   )
 }
