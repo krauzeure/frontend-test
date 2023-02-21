@@ -30,6 +30,7 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
         case 'CHECKPAIRS': {
             console.log(state.turnedCards)
             let newBoard;
+            let newStatus = false;
             if(state.turnedCards.length === 2) {
                 if(state.gameBoard[state.turnedCards[0]].name === state.gameBoard[state.turnedCards[1]].name) {
                     newBoard = state.gameBoard.map((item, index) => ({
@@ -37,6 +38,11 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
                         isHidden: index === state.turnedCards[0] || index === state.turnedCards[1]? false : state.gameBoard[index].isHidden
                     }))
                     console.log("paire")
+                    const checkStatus = newBoard.filter(el => el.isHidden === true)
+                    console.log(checkStatus)
+                    if(checkStatus.length === 0) {
+                        newStatus = true;
+                    }
                 } else {
                     newBoard = state.gameBoard.map((item, index) => ({
                         ...item,
@@ -48,7 +54,8 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
                     ...state,
                     // returning the new board and emptying the turnedCards array
                     gameBoard: newBoard,
-                    turnedCards: []
+                    turnedCards: [],
+                    finished: newStatus
                 }
             } else {
                 // If there's only 1 turned card we return the board as is
