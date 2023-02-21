@@ -21,11 +21,14 @@ export default function Timer() {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
 
+// Calculating the progress percentage for the inline style
+const progressPercentage = Math.round(progress * (10/12));
+
   return (
     <div className='progress-bar-container'>
       <div 
       className='progress-bar-inside'
-      style={{width: `calc(${progress}%)`}}></div>
+      style={{width: `${progressPercentage}%`}}></div>
     </div>
   )
 }
