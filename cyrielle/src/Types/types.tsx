@@ -1,5 +1,5 @@
 export interface CardType {
-    id: number
+    isDisabled: boolean
     name: string
     image: string
     isHidden: boolean
