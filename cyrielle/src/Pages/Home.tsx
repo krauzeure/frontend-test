@@ -4,7 +4,6 @@ import Timer from '../Components/Timer/Timer'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { RootState } from '../index'
-import { CardType } from '../Types/types'
 
 import '../css/style.css'
 
@@ -17,7 +16,7 @@ export default function Home() {
   }))
   const {finished} = useSelector<RootState, {finished: boolean}>(state =>({
     ...state.gameBoardReducer
-}))
+  }))
 
 useEffect(() => {
   if(finished === true) {
@@ -25,6 +24,7 @@ useEffect(() => {
       type: "WON"
     })
   }
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [finished])
 
   const startTimer = () => {
@@ -33,6 +33,7 @@ useEffect(() => {
     })
   }
 
+
   return (
     <main>
         <section><h1>Bienvenue sur le jeu Memory</h1>
@@ -40,7 +41,7 @@ useEffect(() => {
             <p>Cliquez sur "Démarrer" et trouvez tous les duos de cartes en moins de 2 minutes pour gagner !</p>
             <button onClick={startTimer}>Démarrer</button>
         </div></section>
-        <Timer />
+        {status === "ongoing" && <Timer />}
         {status === "ongoing" && <GameBoard />}
         {status === "lost" && <div>Votre temps est écoulé ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
         {status === "won" && <div>Félicitations 🙌 ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
