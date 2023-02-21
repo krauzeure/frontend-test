@@ -1,10 +1,39 @@
-const INITIAL_STATE = {
-    status: ""
+const INITIAL_STATE: {status: string} = {
+    status: "notstarted"
 }
 
 function gameStatusReducer(state = INITIAL_STATE, action:{ type: string }) {
 
-    return state;
+    switch(action.type) {
+        case 'STARTGAME': {
+            return {
+                ...state,
+                status: "ongoing"
+            }
+        }
+        case 'TIMEOVER': {
+            return {
+                ...state,
+                status: "lost"
+            }
+        }
+        case 'WON': {
+            return {
+                ...state,
+                status: "won"
+            }
+        }
+        case 'NOTSTARTED': {
+            return {
+                ...state,
+                status: "notstarted"
+            }
+        }
+    }
+
+    return {
+        ...state
+    }
 
 }
 

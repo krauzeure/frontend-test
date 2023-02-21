@@ -1,8 +1,9 @@
 import { CardType } from "../../Types/types"
 
-const INITIAL_STATE: { gameBoard: [CardType], turnedCards: number[]} = {
+const INITIAL_STATE: { gameBoard: [CardType], turnedCards: number[], finished: boolean} = {
     gameBoard: [{isDisabled: false, name: "", image: "", isHidden: true}],
-    turnedCards: []
+    turnedCards: [],
+    finished: false
 }
 
 function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload: any }) {
