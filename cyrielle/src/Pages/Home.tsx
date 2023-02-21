@@ -15,7 +15,7 @@ export default function Home() {
   const {status} = useSelector<RootState, {status: string}>(state => ({
     ...state.gameStatusReducer
   }))
-  const {gameBoard, turnedCards, finished} = useSelector<RootState, { gameBoard: CardType[], turnedCards: number[], finished: boolean}>(state =>({
+  const {finished} = useSelector<RootState, {finished: boolean}>(state =>({
     ...state.gameBoardReducer
 }))
 
@@ -26,8 +26,6 @@ useEffect(() => {
     })
   }
 }, [finished])
-
-console.log(status)
 
   const startTimer = () => {
     dispatch({
@@ -45,7 +43,7 @@ console.log(status)
         <Timer />
         {status === "ongoing" && <GameBoard />}
         {status === "lost" && <div>Votre temps est écoulé ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
-        {status === "won" && <div>Félicitation 🙌 ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
+        {status === "won" && <div>Félicitations 🙌 ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
     </main>
   )
 }
