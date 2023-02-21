@@ -1,7 +1,7 @@
 import { CardType } from "../../Types/types"
 
 const INITIAL_STATE: { gameBoard: [CardType], turnedCards: number[]} = {
-    gameBoard: [{id:0, name: "", image: "", isHidden: true}],
+    gameBoard: [{isDisabled: false, name: "", image: "", isHidden: true}],
     turnedCards: []
 }
 
@@ -55,6 +55,16 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
                     ...state,
                     gameBoard: [...state.gameBoard]
                 }
+            }
+        }
+        case 'DISABLEBOARD': {
+            const newBoard = state.gameBoard.map((item) => ({
+                ...item,
+                isDisabled: true
+            }))
+            return {
+                ...state,
+                gameBoard: newBoard
             }
         }
     }
