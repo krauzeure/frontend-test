@@ -2,13 +2,10 @@
     width: 100%;
     height: 40px;
     border: 1px solid #afafaf;
-    position: relative;
+    padding: 2px;
 }
 
 .progress-bar-inside {
-    height: 36px;
+    height: 100%;
     background-color: #e79b18;
-    position: absolute;
-    top: 2px;
-    left: 2px;
 }
