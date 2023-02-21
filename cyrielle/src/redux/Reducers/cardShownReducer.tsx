@@ -1,11 +1,11 @@
-const INITIAL_STATE = {
+const INITIAL_STATE: {cardNames:number[]} = {
     cardNames: []
 }
 
-function cardsShownReducer(state = INITIAL_STATE, action:{ type: string, payload: string }) {
+function cardsShownReducer(state = INITIAL_STATE, action:{ type: string, payload: number }) {
 
     switch(action.type) {
-        case 'FIRSTCARD': {
+        case 'SHOWCARD': {
             return {
                 ...state,
                 cardNames: [...state.cardNames, action.payload]

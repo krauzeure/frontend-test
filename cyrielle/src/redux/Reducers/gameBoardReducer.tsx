@@ -1,7 +1,8 @@
 import { CardType } from "../../Types/types"
 
-const INITIAL_STATE: { gameBoard: [CardType]} = {
-    gameBoard: [{id:0, name: "", image: "", isHidden: true}]
+const INITIAL_STATE: { gameBoard: [CardType], turnedCards: number[]} = {
+    gameBoard: [{id:0, name: "", image: "", isHidden: true}],
+    turnedCards: []
 }
 
 function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload: any }) {
@@ -13,7 +14,27 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
                 gameBoard: action.payload
             }
         } 
-        case 'EDITBOARD': {
+        case 'TURNCARD': {
+            const newBoard = state.gameBoard.map((item, index) => ({
+                // @ts-ignore
+                ...item,
+                isHidden: action.payload === index ? false : true,
+            }))
+        
+            return { 
+                ...state, //copying the orignal state
+                gameBoard: newBoard,
+                turnedCards: [...state.turnedCards, action.payload]
+            }
+        }
+        case 'CHECKPAIRS': {
+            if(state.turnedCards.length === 2) {
+                if(state.gameBoard[state.turnedCards[0]].name === state.gameBoard[state.turnedCards[1]].name) {
+                    console.log("paire")
+                } else {
+                    console.log("dommage")
+                }
+            }
             const newBoard = state.gameBoard.map((item, index) => ({
                 // @ts-ignore
                 ...item,
