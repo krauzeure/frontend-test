@@ -18,7 +18,7 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
             const newBoard = state.gameBoard.map((item, index) => ({
                 // @ts-ignore
                 ...item,
-                isHidden: action.payload === index ? false : true,
+                isHidden: action.payload === index ? false : state.gameBoard[index].isHidden,
             }))
         
             return { 
