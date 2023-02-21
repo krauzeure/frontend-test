@@ -26,13 +26,12 @@ let shuffled = allImages;
 
 export default function GameBoard() {
 
-    const [boardUpdate, setBoardUpdate] = useState(true);
-    const [turnedCards, setTurnedCards] = useState<number[]>([]);
+    // const [turnedCards, setTurnedCards] = useState<number[]>([]);
     const [wrongGuess, setWrongGuess] = useState(0)
 
     const dispatch = useDispatch();
 
-    const {gameBoard} = useSelector<RootState, { gameBoard: CardType[]}>(state =>({
+    const {gameBoard, turnedCards} = useSelector<RootState, { gameBoard: CardType[], turnedCards: number[]}>(state =>({
         ...state.gameBoardReducer
     }))
 
@@ -59,42 +58,40 @@ export default function GameBoard() {
 
     useEffect(() => {
         const interval = setTimeout(() => {
-            if(turnedCards.length > 1) {
-                // shuffled[turnedCards[0]].isHidden = true;
-                // shuffled[turnedCards[1]].isHidden = true;
-                // dispatch({
-                //     type: "EDITBOARD",
-                //     payload: shuffled
-                // })
-                setTurnedCards([])
-            }
+            console.log("wrong")
         }, 1000);
         return () => clearTimeout(interval);
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [wrongGuess]);
 
     const checkPair = () => {
-        if(turnedCards.length === 2) {
-            if(shuffled[turnedCards[0]].name === shuffled[turnedCards[1]].name) {
-                const newBoard = shuffled.map(item => item)
-                // newBoard[turnedCards[0]].isHidden = false;
-                // newBoard[turnedCards[1]].isHidden = false;
-                dispatch({
-                    type: "EDITBOARD",
-                    payload: newBoard
-                })
-            } else {
-                setWrongGuess(wrongGuess + 1)
-            }
-        }
+        dispatch({
+            type: "CHECKPAIRS"
+        })
+        // if(turnedCards.length === 2) {
+        //     if(shuffled[turnedCards[0]].name === shuffled[turnedCards[1]].name) {
+        //         const newBoard = shuffled.map(item => item)
+        //         // newBoard[turnedCards[0]].isHidden = false;
+        //         // newBoard[turnedCards[1]].isHidden = false;
+        //         dispatch({
+        //             type: "CORRECTGUESS",
+        //             payload: newBoard
+        //         })
+        //     } else {
+        //         setWrongGuess(wrongGuess + 1)
+        //     }
+        // }
     }
 
     console.log("GAMEBOARD", gameBoard)
 
     const cardClick = (cardNumber: number, cardName: string) => {
         // shuffled[cardNumber].isHidden = false;
-        turnedCards.push(cardNumber);
-        setBoardUpdate(!boardUpdate)
+        dispatch({
+            type: "TURNCARD",
+            payload: cardNumber
+        })
+        // turnedCards.push(cardNumber);
         checkPair();
     }
 
@@ -102,7 +99,7 @@ export default function GameBoard() {
     <ul className="game-container">
         {gameBoard.map((item, index) => (
           //@ts-ignore
-          <Card image={item.image} alt={item.name} key={uuidv4()} hidden={item.isHidden} returnCard={cardClick} number={index} test={boardUpdate} />
+          <Card image={item.image} alt={item.name} key={uuidv4()} hidden={item.isHidden} returnCard={cardClick} number={index} />
         ))}
     </ul>
   )
