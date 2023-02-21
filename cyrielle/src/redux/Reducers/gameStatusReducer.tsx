@@ -8,9 +8,17 @@ function gameStatusReducer(state = INITIAL_STATE, action:{ type: string | number
     switch(action.type) {
         case 'TIME': {
             let newProgress = state.progress + 2
-            return {
-                ...state,
-                progress: newProgress
+            if(newProgress === 120) {
+                return {
+                    ...state,
+                    status: "lost",
+                    progress: newProgress
+                }
+            } else {
+                return {
+                    ...state,
+                    progress: newProgress
+                }
             }
         }
         case 'STARTGAME': {
