@@ -67,6 +67,17 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
                 gameBoard: newBoard
             }
         }
+
+        case 'ABLEBOARD': {
+            const newBoard = state.gameBoard.map((item) => ({
+                ...item,
+                isDisabled: false
+            }))
+            return {
+                ...state,
+                gameBoard: newBoard
+            }
+        }
     }
 
     return state;
