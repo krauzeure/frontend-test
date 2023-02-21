@@ -16,13 +16,12 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
         } 
         case 'TURNCARD': {
             const newBoard = state.gameBoard.map((item, index) => ({
-                // @ts-ignore
                 ...item,
                 isHidden: action.payload === index ? false : state.gameBoard[index].isHidden,
             }))
         
             return { 
-                ...state, //copying the orignal state
+                ...state,
                 gameBoard: newBoard,
                 turnedCards: [...state.turnedCards, action.payload]
             }
@@ -33,21 +32,19 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
             if(state.turnedCards.length === 2) {
                 if(state.gameBoard[state.turnedCards[0]].name === state.gameBoard[state.turnedCards[1]].name) {
                     newBoard = state.gameBoard.map((item, index) => ({
-                        // @ts-ignore
                         ...item,
                         isHidden: index === state.turnedCards[0] || index === state.turnedCards[1]? false : true
                     }))
                     console.log("paire")
                 } else {
                     newBoard = state.gameBoard.map((item, index) => ({
-                        // @ts-ignore
                         ...item,
                         isHidden: index === state.turnedCards[0] || index === state.turnedCards[1]? true : state.gameBoard[index].isHidden
                     }))
                     console.log("dommage")
                 }
                 return { 
-                    ...state, //copying the orignal state
+                    ...state,
                     // returning the new board and emptying the turnedCards array
                     gameBoard: newBoard,
                     turnedCards: []
