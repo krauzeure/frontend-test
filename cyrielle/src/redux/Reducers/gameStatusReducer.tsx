@@ -1,10 +1,18 @@
-const INITIAL_STATE: {status: string} = {
-    status: "notstarted"
+const INITIAL_STATE: {status: string, progress: number} = {
+    status: "notstarted",
+    progress: 0
 }
 
-function gameStatusReducer(state = INITIAL_STATE, action:{ type: string }) {
+function gameStatusReducer(state = INITIAL_STATE, action:{ type: string | number }) {
 
     switch(action.type) {
+        case 'TIME': {
+            let newProgress = state.progress + 5
+            return {
+                ...state,
+                progress: newProgress
+            }
+        }
         case 'STARTGAME': {
             return {
                 ...state,
