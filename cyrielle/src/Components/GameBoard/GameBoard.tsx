@@ -27,7 +27,7 @@ let shuffled = allImages;
 export default function GameBoard() {
 
     // const [turnedCards, setTurnedCards] = useState<number[]>([]);
-    const [wrongGuess, setWrongGuess] = useState(0)
+    const [cardTurns, setCardTurns] = useState(0)
 
     const dispatch = useDispatch();
 
@@ -58,29 +58,18 @@ export default function GameBoard() {
 
     useEffect(() => {
         const interval = setTimeout(() => {
-            console.log("wrong")
+            if(turnedCards.length === 2) {
+                checkPair();
+            }
         }, 1000);
         return () => clearTimeout(interval);
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [wrongGuess]);
+      }, [cardTurns]);
 
     const checkPair = () => {
         dispatch({
             type: "CHECKPAIRS"
         })
-        // if(turnedCards.length === 2) {
-        //     if(shuffled[turnedCards[0]].name === shuffled[turnedCards[1]].name) {
-        //         const newBoard = shuffled.map(item => item)
-        //         // newBoard[turnedCards[0]].isHidden = false;
-        //         // newBoard[turnedCards[1]].isHidden = false;
-        //         dispatch({
-        //             type: "CORRECTGUESS",
-        //             payload: newBoard
-        //         })
-        //     } else {
-        //         setWrongGuess(wrongGuess + 1)
-        //     }
-        // }
     }
 
     console.log("GAMEBOARD", gameBoard)
@@ -91,8 +80,8 @@ export default function GameBoard() {
             type: "TURNCARD",
             payload: cardNumber
         })
+        setCardTurns(cardTurns + 1)
         // turnedCards.push(cardNumber);
-        checkPair();
     }
 
   return (
