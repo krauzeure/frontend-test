@@ -50,6 +50,9 @@ export default function GameBoard() {
             const interval = setTimeout(() => {
                 console.log("check")
                     checkPair();
+                    dispatch({
+                        type: "ABLEBOARD"
+                    })
             }, 1000);
             return () => clearTimeout(interval);
         }
@@ -76,7 +79,7 @@ export default function GameBoard() {
   return (
     <ul className="game-container">
         {gameBoard.map((item, index) => (
-          <Card image={item.image} alt={item.name} key={uuidv4()} hidden={item.isHidden} returnCard={cardClick} number={index} />
+          <Card image={item.image} alt={item.name} key={uuidv4()} hidden={item.isHidden} returnCard={cardClick} number={index} disabled={item.isDisabled}/>
         ))}
     </ul>
   )
