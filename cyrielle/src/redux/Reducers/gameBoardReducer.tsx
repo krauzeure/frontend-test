@@ -28,25 +28,45 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
             }
         }
         case 'CHECKPAIRS': {
+            let newBoard;
             if(state.turnedCards.length === 2) {
                 if(state.gameBoard[state.turnedCards[0]].name === state.gameBoard[state.turnedCards[1]].name) {
+                    newBoard = state.gameBoard.map((item, index) => ({
+                        // @ts-ignore
+                        ...item,
+                        isHidden: index === state.turnedCards[0] || index === state.turnedCards[1]? false : true,
+                    }))
                     console.log("paire")
                 } else {
+                    newBoard = state.gameBoard.map((item, index) => ({
+                        // @ts-ignore
+                        ...item,
+                        isHidden: index === state.turnedCards[0] || index === state.turnedCards[1]? true : true,
+                    }))
                     console.log("dommage")
                 }
+                return { 
+                    ...state, //copying the orignal state
+                    gameBoard: newBoard
+                }
+            } else {
+                console.log([...state.gameBoard])
+                return {
+                    ...state,
+                    gameBoard: [...state.gameBoard]
+                }
             }
-            const newBoard = state.gameBoard.map((item, index) => ({
-                // @ts-ignore
-                ...item,
-                isHidden: index < 2 ? false : true,
-            }))
 
-            console.log('NEWBOARD', newBoard)
+            // const newBoard = state.gameBoard.map((item, index) => ({
+            //     // @ts-ignore
+            //     ...item,
+            //     isHidden: index < 2 ? false : true,
+            // }))
 
-            return { 
-                ...state, //copying the orignal state
-                gameBoard: newBoard //reassingning todos to new array
-            }
+            // return { 
+            //     ...state, //copying the orignal state
+            //     gameBoard: newBoard
+            // }
         }
         // case 'TURNCARD': {
         //     state.gameboard[0].isHidden = false
