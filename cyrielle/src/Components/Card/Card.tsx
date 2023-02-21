@@ -7,8 +7,6 @@ export default function Card(props: {image: string, alt: string, hidden: boolean
         props.returnCard(props.number, props.alt);
     }
 
-    console.log("render")
-
   return (
     <div className={`card-container ${props.alt}`} onClick={returnCard}>
         <div className={props.hidden ? `card-cover ${props.alt}` : `card-cover-shown ${props.alt}`}></div>
