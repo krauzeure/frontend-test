@@ -9,97 +9,97 @@ import reduxtImg from '../Assets/redux.png'
 
 export const images = [
     {
-        "id": 1,
+        "isDisabled": false,
         "name": "react",
         "image": reactImg,
         "isHidden": true
     },
     {
-        "id": 2,
+        "isDisabled": false,
         "name": "css",
         "image": cssImg,
         "isHidden": true
     },
     {
-        "id": 3,
+        "isDisabled": false,
         "name": "git",
         "image": gitImg,
         "isHidden": true
     },
     {
-        "id": 4,
+        "isDisabled": false,
         "name": "js",
         "image": jsImg,
         "isHidden": true
     },
     {
-        "id": 5,
+        "isDisabled": false,
         "name": "sass",
         "image": sassImg,
         "isHidden": true
     },
     {
-        "id": 6,
+        "isDisabled": false,
         "name": "html",
         "image": htmlImg,
         "isHidden": true
     },
     {
-        "id": 7,
+        "isDisabled": false,
         "name": "typescript",
         "image": typescriptImg,
         "isHidden": true
     },
     {
-        "id": 8,
+        "isDisabled": false,
         "name": "redux",
         "image": reduxtImg,
         "isHidden": true
     },
     {
-        "id": 1,
+        "isDisabled": false,
         "name": "react",
         "image": reactImg,
         "isHidden": true
     },
     {
-        "id": 2,
+        "isDisabled": false,
         "name": "css",
         "image": cssImg,
         "isHidden": true
     },
     {
-        "id": 3,
+        "isDisabled": false,
         "name": "git",
         "image": gitImg,
         "isHidden": true
     },
     {
-        "id": 4,
+        "isDisabled": false,
         "name": "js",
         "image": jsImg,
         "isHidden": true
     },
     {
-        "id": 5,
+        "isDisabled": false,
         "name": "sass",
         "image": sassImg,
         "isHidden": true
     },
     {
-        "id": 6,
+        "isDisabled": false,
         "name": "html",
         "image": htmlImg,
         "isHidden": true
     },
     {
-        "id": 7,
+        "isDisabled": false,
         "name": "typescript",
         "image": typescriptImg,
         "isHidden": true
     },
     {
-        "id": 8,
+        "isDisabled": false,
         "name": "redux",
         "image": reduxtImg,
         "isHidden": true
