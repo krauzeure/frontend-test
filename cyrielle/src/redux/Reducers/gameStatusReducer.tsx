@@ -7,7 +7,7 @@ function gameStatusReducer(state = INITIAL_STATE, action:{ type: string | number
 
     switch(action.type) {
         case 'TIME': {
-            let newProgress = state.progress + 5
+            let newProgress = state.progress + 2
             return {
                 ...state,
                 progress: newProgress
