@@ -33,7 +33,7 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
                 if(state.gameBoard[state.turnedCards[0]].name === state.gameBoard[state.turnedCards[1]].name) {
                     newBoard = state.gameBoard.map((item, index) => ({
                         ...item,
-                        isHidden: index === state.turnedCards[0] || index === state.turnedCards[1]? false : true
+                        isHidden: index === state.turnedCards[0] || index === state.turnedCards[1]? false : state.gameBoard[index].isHidden
                     }))
                     console.log("paire")
                 } else {
