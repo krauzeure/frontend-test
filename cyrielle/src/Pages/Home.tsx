@@ -41,8 +41,8 @@ useEffect(() => {
             <p>Cliquez sur "Démarrer" et trouvez tous les duos de cartes en moins de 2 minutes pour gagner !</p>
             <button onClick={startTimer}>Démarrer</button>
         </div></section>
-        {status === "ongoing" && <Timer />}
         {status === "ongoing" && <GameBoard />}
+        {status === "ongoing" && <Timer />}
         {status === "lost" && <div className="home-over-message">Votre temps est écoulé ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
         {status === "won" && <div className="home-over-message">Félicitations 🙌 ! Cliquez sur "Démarrer" pour relancer une partie.</div>}
     </main>

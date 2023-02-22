@@ -2,14 +2,12 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    section {
-      margin-bottom: 40px;
-    }
     .home-over-message {
       width: 100%;
       background-color: $light-grey;
       border-radius: 20px;
       padding: 20px;
+      margin-top: 20px;
     }
   }
   
