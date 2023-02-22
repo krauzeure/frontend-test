@@ -17,4 +17,4 @@ Once you've downloaded the repo, install the project with the `npm install` comm
 
 ## Status
 
-This projet is done.
+This project is done.
