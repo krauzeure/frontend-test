@@ -3,7 +3,6 @@ import user from '@testing-library/user-event'
 import Card from "./Card"
 import { store } from "../../redux/store"
 import { Provider } from "react-redux"
-import userEvent from "@testing-library/user-event"
 
 describe('Card component', () => {
     test('renders correctly', () => {
@@ -16,13 +15,13 @@ describe('Card component', () => {
         expect(imageAlt).toBeInTheDocument()
     })
 
-    test('handler is called on click', async () => {
+    test('handler is called on click', () => {
         const returnFunc = jest.fn()
 
         render(<Provider store={store}><Card image={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"} alt={"test"} hidden={false} returnCard={returnFunc} number={2} disabled={false} /></Provider>)
 
         const imageBlock = screen.getByTestId("image-block")
-        await user.click(imageBlock)
+        user.click(imageBlock)
         expect(returnFunc).toHaveBeenCalledTimes(1)
     })
 })
