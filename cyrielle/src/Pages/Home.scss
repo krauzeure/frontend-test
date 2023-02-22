@@ -32,3 +32,13 @@ main {
       margin-right: 40px;
     }
   }
+
+  @media screen and (max-width: 750px) {
+  
+    main {
+      .home-over-message {
+        width: 90%;
+      }
+    }
+  
+  }
