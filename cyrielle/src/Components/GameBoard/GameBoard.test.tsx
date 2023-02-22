@@ -8,6 +8,7 @@ describe('Gameboard component', () => {
 
     test('render component correctly', () => {
         render(<Provider store={store}><GameBoard /></Provider>)
+
         const list = screen.getByRole("list")
         expect(list).toBeInTheDocument()
     })
