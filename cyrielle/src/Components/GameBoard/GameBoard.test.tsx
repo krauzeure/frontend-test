@@ -13,6 +13,13 @@ describe('Gameboard component', () => {
         expect(list).toBeInTheDocument()
     })
 
+    test('renders a list of card elements', () => {
+        render(<Provider store={store}><GameBoard /></Provider>)
+
+        const listItems = screen.getAllByRole("listitem")
+        expect(listItems).toHaveLength(16)
+    })
+
 })
 
 describe('shuffleArray function', () => {
