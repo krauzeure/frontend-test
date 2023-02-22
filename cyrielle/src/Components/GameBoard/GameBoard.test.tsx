@@ -24,7 +24,7 @@ describe('Gameboard component', () => {
 
 describe('shuffleArray function', () => {
 
-    test('update the length of the array', () => {
+    test('shuffles the array while keeping its length', () => {
         let testArray = [{
             isDisabled: true,
             name: "name",
