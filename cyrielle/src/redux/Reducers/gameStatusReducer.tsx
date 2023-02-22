@@ -12,7 +12,7 @@ function gameStatusReducer(state = INITIAL_STATE, action:{ type: string | number
                 return {
                     ...state,
                     status: "lost",
-                    progress: newProgress
+                    progress: 0
                 }
             } else {
                 return {
@@ -30,13 +30,15 @@ function gameStatusReducer(state = INITIAL_STATE, action:{ type: string | number
         case 'TIMEOVER': {
             return {
                 ...state,
-                status: "lost"
+                status: "lost",
+                progress: 0
             }
         }
         case 'WON': {
             return {
                 ...state,
-                status: "won"
+                status: "won",
+                progress: 0
             }
         }
         case 'NOTSTARTED': {
