@@ -9,7 +9,7 @@ import { RootState } from '../../index'
 import { CardType } from '../../Types/types'
 
 // Creating a function to shuffle our array
-const shuffleArray = (array: CardType[]) => {
+export const shuffleArray = (array: CardType[]) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i];
