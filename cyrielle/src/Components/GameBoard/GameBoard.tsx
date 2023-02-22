@@ -48,7 +48,6 @@ export default function GameBoard() {
                 type: "DISABLEBOARD"
             })
             const interval = setTimeout(() => {
-                console.log("check")
                     checkPair();
                     dispatch({
                         type: "ABLEBOARD"
@@ -65,15 +64,12 @@ export default function GameBoard() {
         })
     }
 
-    console.log("GAMEBOARD", gameBoard)
-
     const cardClick = (cardNumber: number, cardName: string) => {
         dispatch({
             type: "TURNCARD",
             payload: cardNumber
         })
         setCardTurns(cardTurns + 1)
-        console.log(turnedCards)
     }
 
   return (

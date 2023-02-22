@@ -28,7 +28,6 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
             }
         }
         case 'CHECKPAIRS': {
-            console.log(state.turnedCards)
             let newBoard;
             let newStatus = false;
             if(state.turnedCards.length === 2) {
@@ -37,9 +36,7 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
                         ...item,
                         isHidden: index === state.turnedCards[0] || index === state.turnedCards[1]? false : state.gameBoard[index].isHidden
                     }))
-                    console.log("paire")
                     const checkStatus = newBoard.filter(el => el.isHidden === true)
-                    console.log(checkStatus)
                     if(checkStatus.length === 0) {
                         newStatus = true;
                     }
@@ -48,7 +45,6 @@ function gameBoardReducer(state = INITIAL_STATE, action:{ type: string, payload:
                         ...item,
                         isHidden: index === state.turnedCards[0] || index === state.turnedCards[1]? true : state.gameBoard[index].isHidden
                     }))
-                    console.log("dommage")
                 }
                 return { 
                     ...state,
