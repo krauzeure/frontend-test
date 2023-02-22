@@ -25,7 +25,7 @@ export default function Timer() {
 const progressPercentage = Math.round(progress * (10/12));
 
   return (
-    <div className='progress-bar-container'>
+    <div className='progress-bar-container' data-testid="progress-bar-container">
       <div 
       className='progress-bar-inside'
       style={{width: `${progressPercentage}%`}}></div>
